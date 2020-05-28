@@ -162,9 +162,9 @@ botometer_score <- function(user, token, key, parse = TRUE, user_type = NULL) {
   ), auto_unbox = TRUE, pretty = TRUE)
   ## send request to botometer API
   r <- httr::POST(
-    "https://osome-botometer.p.mashape.com/2/check_account",
+    "https://botometer-pro.p.rapidapi.com/2/check_account",
     encode = "json",
-    httr::add_headers(`X-Mashape-Key` = key),
+    httr::add_headers(`x-rapidapi-key` = key),
     body = body
   )
 
@@ -198,7 +198,7 @@ botometer_key <- function(x = NULL, set_key = FALSE) {
   ## if no key is found, stop with hyperlinked message
   if (is.null(x)) {
     stop(paste0("This requires a valid 'Botometer' API key, see: ",
-      "https://rapidapi.com/OSoMe/api/botometer/details for more information"),
+      "https://rapidapi.com/OSoMe/api/botometer-pro/details for more information"),
       call. = FALSE)
   }
 
